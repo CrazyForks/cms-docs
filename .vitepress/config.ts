@@ -26,9 +26,16 @@ export default defineConfigWithTheme<ThemeConfig>({
     nav: [
       { text: '首页', link: '/' },
       { text: '安装', link: '/install' },
-      { text: '进阶', link: '/docs/auto-organize' },
+      {
+        text: '进阶',
+        items: [
+          { text: 'CMS进阶', link: '/docs/full-sync' },
+          { text: 'CMSHelp', link: 'https://github.com/guyue2005/CMSHelp/wiki' },
+        ]
+      },
       { text: '捐赠', link: '/donate' },
       { text: 'FAQ', link: '/faq' },
+
     ],
     sidebar: {
       '/docs': [
