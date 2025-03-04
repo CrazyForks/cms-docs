@@ -14,10 +14,10 @@ RuntimeError: this license key is expired (1:11086)
 ### 示例2：
 
 ```bash
-cloud-media-sync  | INFO:     2025-03-03 22:26:05,135 - main      :  54 ➜ 开始校验捐赠码....
-cloud-media-sync  | ERROR:    2025-03-03 22:26:05,142 - mhttp     : 156 ➜ HTTP请求失败: 连接错误
-cloud-media-sync  | ERROR:    2025-03-03 22:26:05,146 - mhttp     : 156 ➜ HTTP请求失败: 连接错误
-cloud-media-sync  | INFO:     2025-03-03 22:26:05,147 - main      :  56 ➜ 校验捐赠码结束....
+INFO:     2025-03-03 22:26:05,135 - main      :  54 ➜ 开始校验捐赠码....
+ERROR:    2025-03-03 22:26:05,142 - mhttp     : 156 ➜ HTTP请求失败: 连接错误
+ERROR:    2025-03-03 22:26:05,146 - mhttp     : 156 ➜ HTTP请求失败: 连接错误
+INFO:     2025-03-03 22:26:05,147 - main      :  56 ➜ 校验捐赠码结束....
 ```
 
 **你的docker连不上cms的授权服务器，可以给docker加上代理启动，如下示例**
