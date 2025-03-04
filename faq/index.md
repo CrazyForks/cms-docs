@@ -36,3 +36,9 @@ INFO:     2025-03-03 22:26:05,147 - main      :  56 ➜ 校验捐赠码结束...
 ![自动整理报错](/faq/auto-error.jpg)
 
 **你的重命名规则错了，要用 < > 包裹变量，请参考 [重命名规则](https://github.com/guyue2005/CMSHelp/wiki/5.%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%95%B4%E7%90%86#%E9%87%8D%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99)**
+
+改完之后浏览器访问下下面的地址，清下缓存
+
+```bash
+http://127.0.0.1:9527/api/config/clear?token=cloud_media_sync&table=rename_log
+```
