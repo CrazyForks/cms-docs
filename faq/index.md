@@ -42,3 +42,29 @@ INFO:     2025-03-03 22:26:05,147 - main      :  56 ➜ 校验捐赠码结束...
 ```bash
 http://127.0.0.1:9527/api/config/clear?token=cloud_media_sync&table=rename_log
 ```
+
+
+## 字幕未整理
+
+### 原因1：
+
+**字幕文件命名错误，类似于下面的字幕命名才会被整理**
+
+```bash
+钢铁侠.2008.2160p.UHD.BluRay.x265.10bit.HDR.TrueHD.7.1-TnT.mkv
+钢铁侠.2008.2160p.UHD.BluRay.x265.10bit.HDR.TrueHD.7.1-TnT.srt
+钢铁侠.2008.2160p.UHD.BluRay.x265.10bit.HDR.TrueHD.7.1-TnT.chs.srt
+钢铁侠.2008.2160p.UHD.BluRay.x265.10bit.HDR.TrueHD.7.1-TnT-chs.srt
+```
+
+### 原因2：
+
+**命名规则有问题** 你的重命名规则错了，可能为空的变量要用 < > 包裹
+
+```bash
+{title}.{year}.{resource_pix} 错误
+{title}.{year}<.{resource_pix}> 正确
+```
+
+请参考 [重命名规则](https://github.com/guyue2005/CMSHelp/wiki/5.%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%95%B4%E7%90%86#%E9%87%8D%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99)
+
