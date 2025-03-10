@@ -7,14 +7,17 @@
 
 创建`cms`文件夹，并在cms文件夹下创建`cms.yml`文件，内容如下
 
-```yaml
+
+::: code-group
+
+```yaml [bridge网络模式]
 version: '3.5'
 services:
   cloud-media-sync:
     privileged: true
     container_name: cloud-media-sync
     image: imaliang/cloud-media-sync:latest
-    restart: always
+    restart: unless-stopped
     volumes:
       - './config:/config'
       - './logs:/logs'
@@ -43,6 +46,37 @@ networks:
   cms-networks:
     driver: bridge
 ```
+
+```yaml [host网络模式]
+version: '3.5'
+services:
+  cloud-media-sync:
+    privileged: true
+    container_name: cloud-media-sync
+    image: imaliang/cloud-media-sync:latest
+    restart: unless-stopped
+    volumes:
+      - './config:/config'
+      - './logs:/logs'
+      - './cache:/var/cache/nginx/emby'
+      - '/data/media:/media'
+    environment:
+      - PUID=0
+      - PGID=0
+      - UMASK=022
+      - TZ=Asia/Shanghai
+      - RUN_ENV=online
+      - ADMIN_USERNAME=admin
+      - ADMIN_PASSWORD=admin
+      - CMS_API_TOKEN=cloud_media_sync
+      - EMBY_HOST_PORT=http://172.17.0.1:8096
+      - EMBY_API_KEY=xxx
+      - IMAGE_CACHE_POLICY=3
+      - DONATE_CODE=CMS_XXX_XXX
+    network_mode: host
+```
+
+:::
 
 | 环境变量                 | 示例值                    | 必填 | 描述                                                                                                                                                                                                                  |
 |----------------------|------------------------|------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
