@@ -10,6 +10,7 @@ const { posts, rewrites } = await usePosts({
 });
 
 export default defineConfigWithTheme<ThemeConfig>({
+  lang: 'zh-CN',
   title: 'CloudMediaSynC',
   titleTemplate: '云端媒体库同步工具',
   description: '云端媒体库同步工具',
@@ -22,7 +23,24 @@ export default defineConfigWithTheme<ThemeConfig>({
       max: 5
     },
     logo: '/profile.png',
-    outline: { level: 2 },
+    //侧边栏文字更改(移动端)
+    sidebarMenuLabel: '目录',
+
+    //返回顶部文字修改(移动端)
+    returnToTopLabel: '返回顶部',
+
+    //大纲显示2-3级标题
+    outline: {
+      level: [2, 3],
+      label: '摘要'
+    },
+
+    //自定义上下页名
+    docFooter: {
+      prev: '上一页',
+      next: '下一页',
+    },
+    
     nav: [
       { text: '首页', link: '/' },
       { text: '安装', link: '/install' },
@@ -46,6 +64,13 @@ export default defineConfigWithTheme<ThemeConfig>({
             { text: '自动整理', link: '/docs/auto-organize' },
             { text: '转存下载', link: '/docs/save-download' },
             { text: '扩展教程', link: '/docs/extend' },
+          ]
+        },
+        {
+          text: '扩展推荐',
+          items: [
+            { text: 'tmdb代理', link: '/docs/tmdb' },
+            { text: 'vps推荐', link: '/docs/vps' },
           ]
         }
       ]
@@ -71,10 +96,64 @@ export default defineConfigWithTheme<ThemeConfig>({
       }
     ],
     footer: {
-      copyright: 'Copyright © 2024-2025 <a href="https://t.me/cloud_media_sync" target="_blank">今晚打老虎</a>'
+      copyright: `Copyright © 2024-${new Date().getFullYear()} <a href="https://t.me/cloud_media_sync" target="_blank">今晚打老虎</a>`
     },
-    search: { provider: 'local' }
+
+    search: {
+      provider: 'algolia',
+      // provider: 'local',
+      options: {
+        appId: 'RBF5FKZU8U',
+        apiKey: '0813f40a2e6a4add25ed8083d89a738c',
+        indexName: 'cms-docs',
+        locales: {
+          root: {
+            placeholder: '搜索文档',
+            translations: {
+              button: {
+                buttonText: '搜索文档',
+                buttonAriaLabel: '搜索文档'
+              },
+              modal: {
+                searchBox: {
+                  resetButtonTitle: '清除查询条件',
+                  resetButtonAriaLabel: '清除查询条件',
+                  cancelButtonText: '取消',
+                  cancelButtonAriaLabel: '取消'
+                },
+                startScreen: {
+                  recentSearchesTitle: '搜索历史',
+                  noRecentSearchesText: '没有搜索历史',
+                  saveRecentSearchButtonTitle: '保存至搜索历史',
+                  removeRecentSearchButtonTitle: '从搜索历史中移除',
+                  favoriteSearchesTitle: '收藏',
+                  removeFavoriteSearchButtonTitle: '从收藏中移除'
+                },
+                errorScreen: {
+                  titleText: '无法获取结果',
+                  helpText: '你可能需要检查你的网络连接'
+                },
+                footer: {
+                  selectText: '选择',
+                  navigateText: '切换',
+                  closeText: '关闭',
+                  searchByText: '搜索提供者'
+                },
+                noResultsScreen: {
+                  noResultsText: '无法找到相关结果',
+                  suggestedQueryText: '你可以尝试查询',
+                  reportMissingResultsText: '你认为该查询应该有结果？',
+                  reportMissingResultsLinkText: '点击反馈'
+                },
+              },
+            },
+          },
+        },
+      },
+    },
   },
+
+
   markdown: {
     theme: 'one-dark-pro',
     lineNumbers: true
