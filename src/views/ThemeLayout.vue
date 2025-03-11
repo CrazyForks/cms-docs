@@ -47,7 +47,6 @@
         :adsense="{ client: adsense?.client, slot: adsense?.docAfter }"
         type="doc"
       />
-      <!-- <CommentItem /> -->
     </template>
     <template #doc-footer-before><PostInfoItem /></template>
   </Layout>
@@ -55,7 +54,6 @@
 
 <script setup>
 import DefaultTheme from 'vitepress/theme';
-// import CommentItem from '../components/CommentItem.vue';
 import PostInfoItem from '../components/PostInfoItem.vue';
 import AdItem from '../components/AdItem.vue';
 import { useData } from 'vitepress';
