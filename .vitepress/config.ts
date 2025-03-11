@@ -40,7 +40,7 @@ export default defineConfigWithTheme<ThemeConfig>({
       prev: '上一页',
       next: '下一页',
     },
-    
+
     nav: [
       { text: '首页', link: '/' },
       { text: '安装', link: '/install' },
@@ -96,6 +96,7 @@ export default defineConfigWithTheme<ThemeConfig>({
       }
     ],
     footer: {
+      message: '<a href="https://hub.docker.com/r/imaliang/cloud-media-sync" target="_blank" style="display: flex; justify-content: center;"><img src="https://img.shields.io/docker/v/imaliang/cloud-media-sync/latest?label=Version&logo=docker&color=8A2BE2" alt="Docker Version" style="margin-right: 4px;"/><img src="https://img.shields.io/docker/pulls/imaliang/cloud-media-sync?color=ffc107" alt="Docker Pulls"/><img src="https://img.shields.io/github/deployments/imaliang/cms-docs/production?label=Vercel&logo=vercel" alt="Vercel Status" style="margin-left: 4px;"/></a>',
       copyright: `Copyright © 2024-${new Date().getFullYear()} <a href="https://t.me/cloud_media_sync" target="_blank">今晚打老虎</a>`
     },
 
