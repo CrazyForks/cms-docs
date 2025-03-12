@@ -1,6 +1,7 @@
 import { defineConfigWithTheme } from 'vitepress';
 import { usePosts } from '../src/composables/usePosts';
 import type { ThemeConfig } from '../src/types';
+import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
 
 const { posts, rewrites } = await usePosts({
   pageSize: 10,
@@ -17,6 +18,7 @@ export default defineConfigWithTheme<ThemeConfig>({
   rewrites,
   cleanUrls: true,
   ignoreDeadLinks: true,
+
   themeConfig: {
     posts,
     page: {
@@ -42,7 +44,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     },
     //手机端深浅模式文字修改
     darkModeSwitchLabel: '深浅模式',
-    
+
     //编辑本页
     editLink: {
       pattern: 'https://github.com/imaliang/cms-docs/edit/master/:path', // 改成自己的仓库
@@ -59,10 +61,11 @@ export default defineConfigWithTheme<ThemeConfig>({
     nav: [
       { text: '首页', link: '/' },
       { text: '安装', link: '/install' },
+      { text: '图解', link: '/flow' },
       {
         text: '进阶',
         items: [
-          { text: 'CMS进阶', link: '/docs/full-sync' },
+          { text: '功能图解', link: '/docs/flow' },
           { text: 'CMSHelp', link: 'https://github.com/guyue2005/CMSHelp/wiki' },
         ]
       },
@@ -170,15 +173,47 @@ export default defineConfigWithTheme<ThemeConfig>({
   },
 
 
+  //markdown配置
   markdown: {
     theme: 'one-dark-pro',
+    //行号显示
     lineNumbers: true,
+
+    // toc显示一级标题
     toc: { level: [1, 2, 3] },
+
+    // 使用 `!!code` 防止转换
+    codeTransformers: [
+      {
+        postprocess(code) {
+          return code.replace(/\[\!\!code/g, '[!code')
+        }
+      }
+    ],
+
     // 开启图片懒加载
     image: {
       lazyLoading: true
     },
+
+    // 组件插入h1标题下
+    config: (md) => {
+      md.use(MermaidMarkdown);
+    }
+
   },
-  
+
+  vite: {
+    plugins: [
+      [MermaidPlugin()]
+    ],
+    optimizeDeps: {
+      include: ['mermaid'],
+    },
+    ssr: {
+      noExternal: ['mermaid'],
+    },
+  },
+
   srcExclude: ['README.md', 'note.md']
 });
