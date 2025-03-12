@@ -40,7 +40,22 @@ export default defineConfigWithTheme<ThemeConfig>({
       prev: '上一页',
       next: '下一页',
     },
-
+    //手机端深浅模式文字修改
+    darkModeSwitchLabel: '深浅模式',
+    
+    //编辑本页
+    editLink: {
+      pattern: 'https://github.com/imaliang/cms-docs/edit/master/:path', // 改成自己的仓库
+      text: '在GitHub编辑本页'
+    },
+    //上次更新时间
+    lastUpdated: {
+      text: '上次更新时间',
+      formatOptions: {
+        dateStyle: 'short', // 可选值full、long、medium、short
+        timeStyle: 'medium' // 可选值full、long、medium、short
+      },
+    },
     nav: [
       { text: '首页', link: '/' },
       { text: '安装', link: '/install' },
@@ -157,7 +172,13 @@ export default defineConfigWithTheme<ThemeConfig>({
 
   markdown: {
     theme: 'one-dark-pro',
-    lineNumbers: true
+    lineNumbers: true,
+    toc: { level: [1, 2, 3] },
+    // 开启图片懒加载
+    image: {
+      lazyLoading: true
+    },
   },
+  
   srcExclude: ['README.md', 'note.md']
 });
