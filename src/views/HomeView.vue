@@ -20,7 +20,7 @@ defineProps({
   desc: { type: String },
   links: { type: Array<{ url: string; text: string }> }
 });
-const contentHeight = ref('');
+const contentHeight = ref('auto');
 
 const handleHeight = () => {
   const content = document.querySelector('.VPContent');
@@ -61,7 +61,7 @@ window.addEventListener('resize', debounce(handleHeight));
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: v-bind(contentHeight);
+  min-height: v-bind(contentHeight);
 
   &__image {
     width: 18rem;
