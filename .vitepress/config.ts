@@ -65,7 +65,7 @@ export default defineConfigWithTheme<ThemeConfig>({
       {
         text: '进阶',
         items: [
-          { text: '功能图解', link: '/docs/flow' },
+          { text: '进阶教程', link: '/docs/full-sync' },
           { text: 'CMSHelp', link: 'https://github.com/guyue2005/CMSHelp/wiki' },
         ]
       },
