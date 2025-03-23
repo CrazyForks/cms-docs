@@ -85,6 +85,12 @@ export default defineConfigWithTheme<ThemeConfig>({
           ]
         },
         {
+          text: '功能扩展',
+          items: [
+            { text: '115分享同步', link: '/docs/share-sync' },
+          ]
+        },
+        {
           text: '扩展推荐',
           items: [
             { text: 'tmdb代理', link: '/docs/tmdb' },
