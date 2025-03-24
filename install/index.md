@@ -181,7 +181,5 @@ docker pull imaliang/cloud-media-sync:latest
 docker-compose -f cms.yml up -d
 ```
 
-## 8. 完成
-
 > [!TIP]
 > 至此，最简单的玩法已经部署完成，进阶玩法可以参考其它教程。
