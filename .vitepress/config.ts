@@ -18,7 +18,8 @@ export default defineConfigWithTheme<ThemeConfig>({
   rewrites,
   cleanUrls: true,
   ignoreDeadLinks: true,
-
+  base: '/',
+  
   themeConfig: {
     posts,
     page: {
