@@ -162,6 +162,25 @@ https://cms.com （你已经反代了9527端口）
 
 **之后访问cms的`9096`端口，就可以302观影emby了**
 
+## 8. 如何更新到最新版
+
+同样使用ssh连接到你的服务器，并进入到前面创建的cms文件夹下
+
+先停止并删除旧的CMS容器
+```sh
+docker-compose -f cms.yml down
+```
+
+再运行以下命令来拉取最新的 `imaliang/cloud-media-sync` 镜像
+```sh
+docker pull imaliang/cloud-media-sync:latest
+```
+
+最后重新启动CMS容器
+```sh
+docker-compose -f cms.yml up -d
+```
+
 ## 8. 完成
 
 > [!TIP]
