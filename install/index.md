@@ -12,13 +12,13 @@
 ::: code-group
 
 ```yaml [bridge网络模式]
-version: '3.5'
 services:
   cloud-media-sync:
     privileged: true
     container_name: cloud-media-sync
     image: imaliang/cloud-media-sync:latest
     restart: unless-stopped
+    network_mode: bridge
     volumes:
       - './config:/config'
       - './logs:/logs'
@@ -40,22 +40,16 @@ services:
       - EMBY_API_KEY=xxx
       - IMAGE_CACHE_POLICY=3
       - DONATE_CODE=CMS_XXX_XXX
-    networks:
-      - cms-networks
-
-networks:
-  cms-networks:
-    driver: bridge
 ```
 
 ```yaml [host网络模式]
-version: '3.5'
 services:
   cloud-media-sync:
     privileged: true
     container_name: cloud-media-sync
     image: imaliang/cloud-media-sync:latest
     restart: unless-stopped
+    network_mode: host
     volumes:
       - './config:/config'
       - './logs:/logs'
@@ -74,7 +68,6 @@ services:
       - EMBY_API_KEY=xxx
       - IMAGE_CACHE_POLICY=3
       - DONATE_CODE=CMS_XXX_XXX
-    network_mode: host
 ```
 
 :::
@@ -94,7 +87,7 @@ services:
 
 ## 2. 启动容器
 
-使用ssh连接到你的服务器，并进入到前面创建的cms文件夹下，使用以下命令启动CMS容器，等待部署完成
+使用ssh连接到你的服务器（记得使用root用户），并进入到前面创建的cms文件夹下，使用以下命令启动CMS容器，等待部署完成
 
 ```sh
 docker-compose -f cms.yml up -d
