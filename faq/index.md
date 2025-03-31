@@ -6,7 +6,7 @@
 
 ## 启动失败
 
-### 示例1：
+#### 示例1：
 ```bash
 RuntimeError: this license key is expired (1:11086)
 ```
@@ -14,7 +14,7 @@ RuntimeError: this license key is expired (1:11086)
 **版本过期了，升级到最新版即可**
 
 
-### 示例2：
+#### 示例2：
 
 ```bash
 INFO:     2025-03-03 22:26:05,135 - main      :  54 ➜ 开始校验捐赠码....
@@ -37,13 +37,13 @@ INFO:     2025-03-03 22:26:05,147 - main      :  56 ➜ 校验捐赠码结束...
 
 ## 快速同步失败
 
-### 目录不存在或已转移：
+#### 目录不存在或已转移
 
 去网页版115里校验下空间，然后重试
 
 ## 自动整理报错
 
-### 示例1：
+#### 示例1：
 
 ![自动整理报错](/faq/auto-error.jpg)
 
@@ -58,7 +58,7 @@ http://127.0.0.1:9527/api/config/clear?token=cloud_media_sync&table=rename_log
 
 ## 字幕未整理
 
-### 原因1：
+#### 原因1：
 
 **字幕文件命名错误，类似于下面的字幕命名才会被整理**
 
@@ -69,7 +69,7 @@ http://127.0.0.1:9527/api/config/clear?token=cloud_media_sync&table=rename_log
 钢铁侠.2008.2160p.UHD.BluRay.x265.10bit.HDR.TrueHD.7.1-TnT-chs.srt
 ```
 
-### 原因2：
+#### 原因2：
 
 **命名规则有问题** 你的重命名规则错了，可能为空的变量要用 < > 包裹
 
@@ -87,6 +87,15 @@ http://127.0.0.1:9527/api/config/clear?token=cloud_media_sync&table=rename_log
 `监控文件夹`：同步过的文件夹（在同步记录里可以搜到）
 
 `非监控文件夹`：同步过的文件夹（在同步记录里搜不到）
+
+## 获取115登录二维码失败
+
+原因可能有：
+
+1. 香港IP
+2. 账号被风控了
+3. 短时间内获取次数太多
+4. 你断网了
 
 ## 错误码
 
