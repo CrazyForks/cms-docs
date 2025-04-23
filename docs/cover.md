@@ -15,8 +15,8 @@
   "ch_font_name": "霞鹜文楷.ttf",
   "ch_font_size": 163,
   "eng_font_name": "霞鹜文楷.ttf",
-  "eng_font_size": 50,
-  "background_color_rgb_left": "255,246,143",
+  "eng_font_size": 80,
+  "background_color_rgb_left": "71,60,139",
   "background_color_rgb_right": "139,35,35",
   "template_mapping": [
     {
@@ -49,4 +49,5 @@
 注意：`template_mapping` 里面的 `background_color_rgb_left` 优先级大于最外层的 `background_color_rgb_left`
 
 [在线取色器](https://www.jyshare.com/front-end/6210)
+
 [JSON格式在线检测](https://www.jyshare.com/front-end/53/)
