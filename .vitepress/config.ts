@@ -86,9 +86,10 @@ export default defineConfigWithTheme<ThemeConfig>({
           ]
         },
         {
-          text: '功能扩展',
+          text: '插件扩展',
           items: [
             { text: '115分享同步', link: '/docs/share-sync' },
+            { text: '媒体库封面生成', link: '/docs/cover' },
           ]
         },
         {
