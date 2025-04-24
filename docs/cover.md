@@ -13,11 +13,11 @@
 ```json
 {
   "ch_font_name": "霞鹜文楷.ttf",
-  "ch_font_size": 163,
+  "ch_font_size": 180,
   "eng_font_name": "霞鹜文楷.ttf",
   "eng_font_size": 80,
-  "background_color_rgb_left": "71,60,139",
-  "background_color_rgb_right": "139,35,35",
+  "background_color_rgb_left": "139,0,0",
+  "background_color_rgb_right": "255,69,0",
   "poster_position": "315426987",
   "template_mapping": [
     {
@@ -29,8 +29,8 @@
       "library_name": "动漫-剧集",
       "library_ch_name": "动漫剧集",
       "library_eng_name": "ANIME TV",
-      "background_color_rgb_left": "71,60,139",
-      "background_color_rgb_right": "139,35,35"
+      "background_color_rgb_left": "139,0,0",
+      "background_color_rgb_right": "255,69,0"
     }
   ]
 }
@@ -41,9 +41,14 @@
 | ch_font_name               | 自定义中文字体文件名（使用此配置时必须把字体文件放到你的 config 文件夹下） |
 | ch_font_size               | 自定义中文字体大小                                                         |
 | eng_font_name              | 自定义英文字体文件名（使用此配置时必须把字体文件放到你的 config 文件夹下） |
+| eng_font_size              | 自定义英文字体大小                                                         |
 | background_color_rgb_left  | 封面背景颜色左边（RGB 格式）                                               |
 | background_color_rgb_right | 封面背景颜色右边（RGB 格式）                                               |
 | poster_position            | 海报在封面的位置，每三个一组，分别对应每列从上到下的位置取第几个封面       |
+| color_block_rgb            | 色块颜色（RGB 格式）                                                       |
+| ch_position                | 中文位置（默认 73.32,427.34）                                              |
+| eng_position               | 英文位置（默认 124.68,635.55）                                             |
+| color_block_position       | 色块位置（默认 84.38,620.06）                                              |
 | library_name               | 实际的媒体库名称                                                           |
 | library_ch_name            | 封面中文名                                                                 |
 | library_eng_name           | 封面英文名                                                                 |
