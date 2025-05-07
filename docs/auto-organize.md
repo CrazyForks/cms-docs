@@ -38,11 +38,8 @@ graph TD
 
 文件夹命名示例
 
-```js
-{
-  first_letter;
-}
--{ title } - { year } - [(tmdb = { tmdb_id })];
+```yaml
+{first_letter}-{ title } - { year } - [(tmdb = { tmdb_id })];
 ```
 
 文件命名示例
@@ -154,9 +151,20 @@ tv:
 
 优先级匹配支持所有重命名规则里的变量名
 
-- resource_pix: "2160p" 代表匹配 2160p 分辨率
-- resource_pix: "2160p,1080p" 代表匹配 2160p、1080p 分辨率
-- resource_pix: "!2160p" 代表排除 2160p 分辨率
+```yaml
+电影洗版策略:
+  mode: replace
+  media_type: movie
+  priority_level:
+    # 匹配 2160p 分辨率
+    - resource_pix: "2160p"
+    # 匹配 2160p、1080p 分辨率
+    - resource_pix: "2160p,1080p"
+    # 排除 2160p 分辨率
+    - resource_pix: "!2160p"
+```
+
+一个通用的新版策略如下：排除 DV；优先 WiKi 小组；优先 2160P
 
 ```yaml
 # 第一级为别名，随便写
@@ -175,15 +183,15 @@ tv:
   # 匹配规则优先级，上面的优先级最高
   priority_level:
     - resource_team: "WiKi"
-      resource_effect: "!DV.HDR,!DV,!HDR"
+      resource_effect: "!DV.HDR,!DV"
     - resource_pix: "2160p"
       resource_type: "BluRay"
-      resource_effect: "!DV.HDR,!DV,!HDR"
+      resource_effect: "!DV.HDR,!DV"
     - resource_pix: "1080p"
       resource_type: "BluRay"
     - resource_pix: "2160p"
       resource_type: "WEB-DL"
-      resource_effect: "!DV.HDR,!DV,!HDR"
+      resource_effect: "!DV.HDR,!DV"
     - resource_pix: "1080p"
       resource_type: "WEB-DL"
 
@@ -192,7 +200,7 @@ tv:
   media_type: tv
   priority_level:
     - resource_pix: "2160p"
-      resource_effect: "!DV.HDR,!DV,!HDR"
+      resource_effect: "!DV.HDR,!DV"
     - resource_pix: "1080p"
 
 电影兜底策略:
