@@ -183,24 +183,29 @@ tv:
   # 匹配规则优先级，上面的优先级最高
   priority_level:
     - resource_team: "WiKi"
-      resource_effect: "!DV.HDR,!DV"
-    - resource_pix: "2160p"
+      resource_effect: "!DV"
+    - resource_pix: "2160p,4k"
       resource_type: "BluRay"
-      resource_effect: "!DV.HDR,!DV"
+      resource_effect: "!DV"
     - resource_pix: "1080p"
       resource_type: "BluRay"
-    - resource_pix: "2160p"
+    - resource_pix: "2160p,4k"
       resource_type: "WEB-DL"
-      resource_effect: "!DV.HDR,!DV"
+      resource_effect: "!DV"
     - resource_pix: "1080p"
-      resource_type: "WEB-DL"
 
 剧集洗版策略:
   mode: replace
   media_type: tv
   priority_level:
-    - resource_pix: "2160p"
-      resource_effect: "!DV.HDR,!DV"
+    - resource_pix: "2160p,4k"
+      resource_type: "BluRay"
+      resource_effect: "!DV"
+    - resource_pix: "1080p"
+      resource_type: "BluRay"
+    - resource_pix: "2160p,4k"
+      resource_type: "WEB-DL"
+      resource_effect: "!DV"
     - resource_pix: "1080p"
 
 电影兜底策略:
